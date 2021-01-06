@@ -11,7 +11,7 @@ const Home = ({posts}) => {
                     return (
                         <div className='container'>
                             <div className="row">
-                                <div className="col-lg-12 border border-dark my-3">
+                                <div className="col-lg-12  my-3">
                                     <Posts posts={posts}/>
                                 </div>
                             </div>

@@ -16,7 +16,10 @@ const Posts = ({posts}) => {
                                         <h5>{post.name}</h5>
                                         <p>{post.description}</p>
                                         <Link href={`/post/[id]`} as={`/post/${post._id}`}>
-                                            <a>Read More</a>
+                                            <a>
+                                                Read More
+                                                <i class="far fa-hand-point-right"></i>
+                                            </a>
                                         </Link>
                                     </div>
                                 </div>

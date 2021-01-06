@@ -1,13 +1,20 @@
 $bg-color: #F7FBFD;
+$button-color: #103518;
+
 
 .cardcontainer {
     background-color: $bg-color;
+    margin: 1em 0;
     display: flex;
-    
     justify-content: space-between;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 
     img {
+        margin: auto;
         width: 33%;
+        max-height: 10em;
         object-fit: cover;
     }
 
@@ -16,8 +23,47 @@ $bg-color: #F7FBFD;
         flex-direction: column;
         align-items: flex-end;
         justify-content: center;
-        
         width: 75%;
         margin: 0 2%;
+
+        h5 {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        p {
+            font-size: 0.8em;
+            font-weight: 300;
+            text-align: justify;
+
+            &::first-letter {
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 1.2em;
+            }
+        }
+
+        a {
+            color: black;
+            padding: 2px 15px;
+            border-radius: 6px;
+            font-size: 1em;
+            text-transform: uppercase;
+            font-weight: 600;
+            background-color: transparent;
+            transition: box-shadow, .3s all;
+            margin-bottom: 5px;
+
+            i {
+                font-size: 1.1em;
+                margin: 0 5px;
+            }
+
+            &:hover {
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                transition: box-shadow, .3s all;
+            }
+        }
     }
 }
