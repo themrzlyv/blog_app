@@ -1,0 +1,28 @@
+$text-color: #E1E289;
+$bg-color: #0F4416;
+
+
+
+.container {
+    background-color: $bg-color;
+    
+
+    .logo {
+        margin: 3.5em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+        
+
+        h4 {
+            margin: 0;
+            letter-spacing: 1px;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: black;
+            text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+                        0px -4px 10px rgba(255,255,255,0.3);
+        }
+    }
+}

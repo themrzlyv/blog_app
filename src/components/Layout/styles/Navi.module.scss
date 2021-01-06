@@ -1,0 +1,62 @@
+$bg-color: #103518;
+$text-hover: #ACD2ED;
+$text-color: #E1E289;
+
+.container {
+    background-color: $bg-color;
+
+    .navbar {
+        
+
+        .logo {
+            color: $text-color;
+            font-weight: 600;
+            font-size: 1.3em;
+            letter-spacing: 2px;
+            text-shadow: 0px 4px 4px #282828;
+        }
+
+        div {
+
+            ul {
+
+                li {
+                    a {
+                        font-weight: 500;
+                        
+                        &:hover {
+                            color: $text-hover !important;
+                        }
+                    }
+                }
+
+                div {
+
+                    ul {
+
+                        a {
+
+                            &:hover {
+                                color: black !important;
+                            }
+
+                            &:active {
+                                color: white !important;
+                                background-color: $bg-color !important;
+                            }
+                        }
+                        
+                        button {
+                            font-weight: 500;
+
+                            &:active {
+                                color: white;
+                                background-color: $bg-color !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
