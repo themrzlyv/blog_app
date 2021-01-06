@@ -1,5 +1,8 @@
 import {useState} from 'react'
 import {useRouter} from 'next/router'
+import styles from '../styles/Register.module.scss'
+
+
 
 const Register = () => {
 
@@ -32,31 +35,56 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input 
-                value={name}
-                type="text" 
-                onChange={(e)=> setname(e.target.value)} 
-                name='name' 
-                placeholder='name'/>
-                <input 
-                value={email}
-                type="text" 
-                onChange={(e)=> setemail(e.target.value)} 
-                name='email' 
-                placeholder='email'/>
-                <input
-                value={password} 
-                type="password" 
-                onChange={(e)=> setpassword(e.target.value)} 
-                name='password' 
-                placeholder='password'/>
-                <button 
-                type='submit'>
-                    register now
-                </button>
-            </form>
+        <div className='container'>
+            <div className="row">
+                <div className="col-lg-8 mx-auto bg-danger my-3 d-flex p-0 justify-content-center">
+                    <form className={styles.form} onSubmit={handleSubmit}>
+                        <div>
+                            <h4>
+                                <i className="fas fa-user"></i>
+                                Name:
+                            </h4>
+                            <input 
+                            value={name}
+                            type="text" 
+                            onChange={(e)=> setname(e.target.value)} 
+                            name='name' 
+                            placeholder='name'/>
+                        </div>
+                        <div>
+                            <h4>
+                                <i className="far fa-envelope-open"></i>
+                                Email:
+                            </h4>
+                            <input 
+                            value={email}
+                            type="text" 
+                            onChange={(e)=> setemail(e.target.value)} 
+                            name='email' 
+                            placeholder='email'/>
+                        </div>
+                        <div>
+                            <h4>
+                                <i className="fas fa-passport"></i>
+                                Password:
+                            </h4>
+                            <input
+                            value={password} 
+                            type="password" 
+                            onChange={(e)=> setpassword(e.target.value)} 
+                            name='password' 
+                            placeholder='password'/>
+                        </div>
+                        <div>
+                            <button 
+                            type='submit'>
+                                register now
+                                <i className="far fa-check-circle"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
