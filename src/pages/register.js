@@ -37,7 +37,7 @@ const Register = () => {
     return (
         <div className='container'>
             <div className="row">
-                <div className="col-lg-8 mx-auto bg-danger my-3 d-flex p-0 justify-content-center">
+                <div className="col-lg-8 mx-auto my-3 d-flex p-0 justify-content-center">
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <div>
                             <h4>
