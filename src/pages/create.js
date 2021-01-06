@@ -1,6 +1,9 @@
 import {useState} from 'react'
 import {useRouter} from 'next/router'
 import { parseCookies } from 'nookies'
+import styles from '../styles/Create.module.scss'
+
+
 
 const Create = () => {
     const [name, setname] = useState('')
@@ -45,32 +48,41 @@ const Create = () => {
 
     return (
         <div className='container'>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input
-                    type="text"
-                    placeholder='name'
-                    onChange={(e) => setname(e.target.value)}
-                    />
+            <div className="row">
+                <div className="col-lg-10 mx-auto my-3 d-flex p-0 justify-content-center">
+                    <form className={styles.form} onSubmit={handleSubmit}>
+                        <div>
+                            <input
+                            type="text"
+                            placeholder='title'
+                            onChange={(e) => setname(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <textarea
+                            rows="8" 
+                            cols="60"
+                            type="text"
+                            placeholder='description'
+                            onChange={(e) => setdescription(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input 
+                            accept='image/*'
+                            onChange={(e) => setmediaurl(e.target.files[0])}
+                            type="file"/>
+                            <img src={mediaurl?URL.createObjectURL(mediaurl): ""}/>
+                        </div>
+                        <div>
+                            <button type='submit'>
+                            <i className="fas fa-pencil-alt"></i>
+                            Write
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <input 
-                    type="text"
-                    placeholder='description'
-                    onChange={(e) => setdescription(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <input 
-                    accept='image/*'
-                    onChange={(e) => setmediaurl(e.target.files[0])}
-                    type="file"/>
-                    <img src={mediaurl?URL.createObjectURL(mediaurl): ""}/>
-                </div>
-                <div>
-                    <button type='submit'>Write</button>
-                </div>
-            </form>
+            </div>
         </div>
     )
 }

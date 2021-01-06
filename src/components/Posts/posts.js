@@ -18,7 +18,7 @@ const Posts = ({posts}) => {
                                         <Link href={`/post/[id]`} as={`/post/${post._id}`}>
                                             <a>
                                                 Read More
-                                                <i class="far fa-hand-point-right"></i>
+                                                <i className="far fa-hand-point-right"></i>
                                             </a>
                                         </Link>
                                     </div>
