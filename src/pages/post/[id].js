@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import {parseCookies} from 'nookies'
 import {useRouter} from 'next/router'
+import styles from '../../styles/id.module.scss'
+
 
 const Post = ({post}) => {
     const router = useRouter();
@@ -24,23 +26,31 @@ const Post = ({post}) => {
 
 
     return (
-        <div>
-            <h2>
-                {post.name}
-            </h2>
-            <img src={post.mediaurl} />
-            <p>
-                {post.description}
-            </p>
-            {
-                user ? 
-                <>
-                    <button onClick={handleDelete}>delete post</button>
-                    <Link href={`/${post._id}/edit`}><a>Edit</a></Link>
-                </>
-                :
-                null
-            }
+        <div className='container'>
+            <div className="row my-3">
+                <div className={`col-lg-6 ${styles.imgbox}`}>
+                    <img src={post.mediaurl} />
+                </div>
+            </div>
+            <div className="row my-3">
+                <div className={`col-lg-8 ${styles.textbox}`}>
+                    <h2>
+                        {post.name}
+                    </h2>
+                    <p>
+                        {post.description}
+                    </p>
+                    {
+                        user ? 
+                            <div>
+                                <button onClick={handleDelete}>delete post</button>
+                                <Link href={`/${post._id}/edit`}><a>Edit</a></Link>
+                            </div>
+                        :
+                        null
+                    }
+                </div>
+            </div>
         </div>
     )
 }
