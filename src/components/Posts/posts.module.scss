@@ -1,0 +1,23 @@
+$bg-color: #F7FBFD;
+
+.cardcontainer {
+    background-color: $bg-color;
+    display: flex;
+    
+    justify-content: space-between;
+
+    img {
+        width: 33%;
+        object-fit: cover;
+    }
+
+    .cardbody {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        
+        width: 75%;
+        margin: 0 2%;
+    }
+}
