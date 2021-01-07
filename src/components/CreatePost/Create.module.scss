@@ -10,7 +10,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 1em 0;
         padding: 1em 0;
         
 
@@ -45,6 +44,33 @@
                 text-transform: uppercase;
                 font-style: italic;
             }
+        }
+
+        textarea {
+            font-size: 0.8em;
+            resize: none;
+            width: 70%;
+            height: 12em;
+            text-indent: 5px;
+            border-radius: 6px;
+            border: none;
+            padding: 5px 0;
+            
+            &:focus {
+                outline: none;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            }
+
+            &::placeholder {
+                font-size: 1em;
+                font-weight: 300;
+                text-transform: uppercase;
+                font-style: italic;
+            }
+        }
+
+        img {
+            width: 30%;
         }
 
         button {

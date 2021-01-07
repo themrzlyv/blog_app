@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {useRouter} from 'next/router'
 import {useToasts} from 'react-toast-notifications'
-import styles from '../styles/Register.module.scss'
+import styles from './Register.module.scss'
 
 
 
@@ -45,7 +45,7 @@ const Register = () => {
     return (
         <div className='container'>
             <div className="row">
-                <div className="col-lg-8 mx-auto my-3 d-flex p-0 justify-content-center">
+                <div className="col-lg-12 mx-auto my-2 d-flex p-0 justify-content-center">
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <div>
                             <h4>
@@ -86,7 +86,7 @@ const Register = () => {
                         <div>
                             <button 
                             type='submit'>
-                                register now
+                                Create
                                 <i className="far fa-check-circle"></i>
                             </button>
                         </div>

@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {useRouter} from 'next/router'
 import { parseCookies } from 'nookies'
 import {useToasts} from 'react-toast-notifications'
-import styles from '../styles/Create.module.scss'
+import styles from './Create.module.scss'
 
 
 
@@ -58,7 +58,7 @@ const Create = () => {
     return (
         <div className='container'>
             <div className="row">
-                <div className="col-lg-10 mx-auto my-3 d-flex p-0 justify-content-center">
+                <div className="col-lg-12 mx-auto my-2 d-flex p-0 justify-content-center">
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <div>
                             <input
@@ -86,7 +86,7 @@ const Create = () => {
                         <div>
                             <button type='submit'>
                             <i className="fas fa-pencil-alt"></i>
-                            Write
+                            Create post
                             </button>
                         </div>
                     </form>
