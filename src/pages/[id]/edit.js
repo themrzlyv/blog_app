@@ -1,8 +1,11 @@
 import {useState} from 'react'
 import {parseCookies} from 'nookies'
 import {useRouter} from 'next/router'
+import { useToasts } from 'react-toast-notifications'
+import styles from '../../styles/Edit.module.scss'
 
 const Edit = ({post}) => {
+    const {addToast} = useToasts();
     const router = useRouter();
     const [name, setname] = useState(post.name)
     const [description, setdescription] = useState(post.description)
@@ -25,9 +28,10 @@ const Edit = ({post}) => {
                 })
             })
             const resData = await res.json()
-            console.log(resData)
+            addToast('Post changed successfully' , {appearance: 'success'})
             router.push(`/`)
         } catch (error) {
+            addToast('Connection problem' , {appearance: 'error'})
             console.log(error)
         }
     }
@@ -48,35 +52,42 @@ const Edit = ({post}) => {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input
-                    value={name}
-                    type="text"
-                    placeholder='name'
-                    onChange={(e) => setname(e.target.value)}
-                    />
+        <div className='container'>
+            <div className="row">
+                <div className="col-lg-10 mx-auto my-3 d-flex p-0 justify-content-center">
+                    <form className={styles.form} onSubmit={handleSubmit}>
+                        <div>
+                            <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setname(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <textarea
+                            value={description}
+                            rows="8" 
+                            cols="60"
+                            type="text"
+                            onChange={(e) => setdescription(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input 
+                            accept='image/*'
+                            onChange={(e) => setmediaurl(e.target.files[0])}
+                            type="file"/>
+                            <img src={mediaurl?URL.createObjectURL(mediaurl): ""}/>
+                        </div>
+                        <div>
+                            <button type='submit'>
+                            <i className="fas fa-pencil-alt"></i>
+                            Save
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <input 
-                    value={description}
-                    type="text"
-                    placeholder='description'
-                    onChange={(e) => setdescription(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <input 
-                    accept='image/*'
-                    onChange={(e) => setmediaurl(e.target.files[0])}
-                    type="file"/>
-                    <img src={mediaurl?URL.createObjectURL(mediaurl): ""}/>
-                </div>
-                <div>
-                    <button type='submit'>Write</button>
-                </div>
-            </form>
+            </div>
         </div>
     )
 }

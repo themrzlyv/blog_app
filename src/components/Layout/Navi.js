@@ -77,7 +77,7 @@ const Navi = () => {
                                         </li>
                                     </div>
                                     :
-                                    <li class="nav-item">
+                                    <li className="nav-item">
                                         <Link href={`/login`}>
                                             <a className={"nav-link " + isActive('/login')} aria-current="page">
                                             Login

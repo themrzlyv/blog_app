@@ -2,9 +2,10 @@ import Link from 'next/link'
 import {parseCookies} from 'nookies'
 import {useRouter} from 'next/router'
 import styles from '../../styles/id.module.scss'
-
+import {useToasts} from 'react-toast-notifications'
 
 const Post = ({post}) => {
+    const { addToast } = useToasts()
     const router = useRouter();
     const cookie = parseCookies()
     const user = cookie.user ? JSON.parse(cookie.user) : ''
@@ -18,15 +19,17 @@ const Post = ({post}) => {
                 method: "DELETE",
             })
             await res.json()
+            addToast("Post deleted successfully", {appearance: 'success'})
             router.push(`/`)
         } catch (error) {
+            addToast("Post deleted successfully", {appearance: 'success'})
             console.log(error)
         }
     }
 
 
     return (
-        <div className='container'>
+        <div className={`container ${styles.generalcontainer}`}>
             <div className="row my-3">
                 <div className={`col-lg-6 ${styles.imgbox}`}>
                     <img src={post.mediaurl} />

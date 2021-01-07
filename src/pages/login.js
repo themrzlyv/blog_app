@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import cookie from 'js-cookie'
 import {useRouter} from 'next/router'
+import {useToasts} from 'react-toast-notifications'
+
 import styles from '../styles/Login.module.scss'
 
 
@@ -10,6 +12,8 @@ const Login = () => {
 
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
+
+    const { addToast } = useToasts()
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -63,7 +67,8 @@ const Login = () => {
                             placeholder='password'/>
                         </div>
                         <div>
-                            <button 
+                            <button
+                            onClick={() => addToast(`Welcome ${email}` , {appearance: 'success'})} 
                             type='submit'>
                                 Login
                                 <i className="far fa-check-circle"></i>

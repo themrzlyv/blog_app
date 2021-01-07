@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {useRouter} from 'next/router'
 import { parseCookies } from 'nookies'
+import {useToasts} from 'react-toast-notifications'
 import styles from '../styles/Create.module.scss'
 
 
@@ -11,6 +12,7 @@ const Create = () => {
     const [mediaurl, setmediaurl] = useState('')
 
     const router = useRouter()
+    const {addToast} = useToasts()
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -27,8 +29,10 @@ const Create = () => {
                     mediaurl
                 })
             })
+            addToast('Post created successfully', {appearance:'success'})
             router.push(`/`)
         } catch (error) {
+            addToast('Connection problem', {appearance:'error'})
             console.log(error)
         }
     }

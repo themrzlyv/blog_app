@@ -1,41 +1,88 @@
-.imgbox {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    padding: 0;
+.generalcontainer {
 
-    img {
-        width: 60%;
-        object-fit: contain;
-    }
-}
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 
-.textbox {
-    margin: auto;
-    padding: 0;
-    border: 1px solid;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
 
-    h2 {
-        font-size: 1.3em;
-        font-weight: 600;
-        margin: 7px 0;
-    }
-
-    p {
-        font-size: 1.1em;
-        font-weight: 400;
-        margin: 7px 0;
-    }
-
-    div {
-        width: 30%;
+    .imgbox {
         display: flex;
-        margin: 10px 0;
-        align-items: center;
-        justify-content: space-around;
-        border: 1px solid;
+        justify-content: center;
+        margin: auto;
+        padding: 0;
+    
+        img {
+            width: 60%;
+            object-fit: contain;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        }
+    }
+    
+    .textbox {
+        margin: auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    
+        h2 {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin: 7px 0;
+        }
+    
+        p {
+            font-size: 1.1em;
+            font-weight: 400;
+            margin: 7px 0;
+        }
+    
+        div {
+            width: 30%;
+            display: flex;
+            margin: 10px 0;
+            align-items: center;
+            justify-content: space-around;
+            
+    
+            button {
+                font-size: 1em;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: black;
+                background: transparent;
+                border: none;
+                outline: none;
+                border-radius: 6px;
+                margin: 0 10px;
+                padding: 3px 7px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                transition: all, .3s all;
+    
+                &:hover {
+                    color: white;
+                    background: lighten($color: crimson, $amount: 5);
+                    transition: all, .3s all;
+                }
+            }
+    
+            a {
+                font-size: 1em;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: black;
+                background: transparent;
+                border: none;
+                outline: none;
+                border-radius: 6px;
+                padding: 3px 7px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                transition: all, .3s all;
+    
+                &:hover {
+                    color: white;
+                    background: lighten($color: orange, $amount: 1);
+                    transition: all, .3s all;
+                }
+            }
+        }
     }
 }
