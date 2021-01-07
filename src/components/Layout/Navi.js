@@ -2,6 +2,7 @@ import {useRouter} from 'next/router'
 import Link from 'next/link'
 import {parseCookies} from 'nookies'
 import cookie from 'js-cookie'
+import {useToasts} from 'react-toast-notifications'
 import styles from './styles/Navi.module.scss'
 
 const Navi = () => {
@@ -10,6 +11,7 @@ const Navi = () => {
     const user = cookieuser.user ? JSON.parse(cookieuser.user) : ''
 
     const router = useRouter()
+    const {addToast} = useToasts()
 
     const isActive = (route) => {
         if(route === router.pathname){
@@ -64,6 +66,7 @@ const Navi = () => {
                                                 <li>
                                                     <button
                                                     onClick={() => {
+                                                        addToast(`Goodbye Mr ${user.name}` , {appearance:'success'})
                                                         cookie.remove('token')
                                                         cookie.remove('user')
                                                         router.push('/')
