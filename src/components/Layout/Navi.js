@@ -39,56 +39,56 @@ const Navi = () => {
                                         <a className="nav-link" aria-current="page">Home</a>
                                     </Link>
                                 </li>
-                                {
-                                    user ? 
-                                    <div>
-                                        <li className="nav-item dropdown">
-                                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Account
-                                            </a>
-                                            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                <li>
-                                                    <Link href={`/account`}>
-                                                        <a className="dropdown-item">
-                                                        {user.name}
-                                                        <i className="fas fa-user-cog mx-2"></i>
-                                                        </a>
-                                                    </Link>
+                                    {
+                                        user ? 
+                                            <div>
+                                                <li className="nav-item dropdown">
+                                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        Account
+                                                    </a>
+                                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                        <li>
+                                                            <Link href={`/account`}>
+                                                                <a className="dropdown-item">
+                                                                {user.name}
+                                                                <i className="fas fa-user-cog mx-2"></i>
+                                                                </a>
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link href={`/create`}>
+                                                                <a className="dropdown-item">
+                                                                New Post
+                                                                <i className="far fa-edit mx-2"></i>
+                                                                </a>
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <button
+                                                            onClick={() => {
+                                                                addToast(`Goodbye Mr ${user.name}` , {appearance:'success'})
+                                                                cookie.remove('token')
+                                                                cookie.remove('user')
+                                                                router.push('/')
+                                                            }} 
+                                                            className="dropdown-item">
+                                                                Logout
+                                                                <i className="fas fa-sign-out-alt mx-2"></i>
+                                                            </button>
+                                                        </li>
+                                                    </ul>
                                                 </li>
-                                                <li>
-                                                    <Link href={`/create`}>
-                                                        <a className="dropdown-item">
-                                                        New Post
-                                                        <i className="far fa-edit mx-2"></i>
-                                                        </a>
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <button
-                                                    onClick={() => {
-                                                        addToast(`Goodbye Mr ${user.name}` , {appearance:'success'})
-                                                        cookie.remove('token')
-                                                        cookie.remove('user')
-                                                        router.push('/')
-                                                    }} 
-                                                    className="dropdown-item">
-                                                        Logout
-                                                        <i className="fas fa-sign-out-alt mx-2"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </div>
-                                    :
-                                    <li className="nav-item">
-                                        <Link href={`/login`}>
-                                            <a className={"nav-link " + isActive('/login')} aria-current="page">
-                                            Login
-                                            <i className="fas fa-sign-in-alt mx-2"></i>
-                                            </a>
-                                        </Link>
-                                    </li>
-                                }
+                                            </div>
+                                        :
+                                            <li className="nav-item">
+                                                <Link href={`/login`}>
+                                                    <a className={"nav-link " + isActive('/login')} aria-current="page">
+                                                    Login
+                                                    <i className="fas fa-sign-in-alt mx-2"></i>
+                                                    </a>
+                                                </Link>
+                                            </li>
+                                    }
                                 
                             </ul>
                         </div>

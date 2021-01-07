@@ -52,7 +52,7 @@ const Login = () => {
                             type="text" 
                             onChange={(e)=> setemail(e.target.value)} 
                             name='email' 
-                            placeholder='email'/>
+                            placeholder='Email must be min 10 character'/>
                         </div>
                         <div>
                             <h4>
@@ -64,7 +64,7 @@ const Login = () => {
                             type="password" 
                             onChange={(e)=> setpassword(e.target.value)} 
                             name='password' 
-                            placeholder='password'/>
+                            placeholder='Password must be min 4'/>
                         </div>
                         <div>
                             <button

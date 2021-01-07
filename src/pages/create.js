@@ -16,6 +16,11 @@ const Create = () => {
 
     const handleSubmit = async e => {
         e.preventDefault()
+        if(name.length < 5 || description.length < 10 || name.length > 35){
+            return addToast('Some inputs fill wrongly' , {appearance:'warning'})
+        }
+
+
         try {
             const mediaurl = await imageupload()
             const res = await fetch(`${process.env.BASE_URL}/api/posts` , {
@@ -58,7 +63,7 @@ const Create = () => {
                         <div>
                             <input
                             type="text"
-                            placeholder='title'
+                            placeholder='Title must be max 35 character'
                             onChange={(e) => setname(e.target.value)}
                             />
                         </div>
@@ -67,7 +72,7 @@ const Create = () => {
                             rows="8" 
                             cols="60"
                             type="text"
-                            placeholder='description'
+                            placeholder='Description must be min 20 character'
                             onChange={(e) => setdescription(e.target.value)}
                             />
                         </div>

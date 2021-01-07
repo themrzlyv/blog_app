@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {useRouter} from 'next/router'
+import {useToasts} from 'react-toast-notifications'
 import styles from '../styles/Register.module.scss'
 
 
@@ -7,6 +8,7 @@ import styles from '../styles/Register.module.scss'
 const Register = () => {
 
     const router = useRouter()
+    const {addToast} = useToasts()
 
     const [name, setname] = useState('')
     const [email, setemail] = useState('')
@@ -14,6 +16,11 @@ const Register = () => {
 
     const handleSubmit = async e => {
         e.preventDefault()
+        if(email.length < 10 || name.length < 1 || password.length < 4){
+            return addToast(`Some inputs fill wrongly` , {appearance:'warning'})
+        }
+
+
         try {
             const res = await fetch(`${process.env.BASE_URL}/api/register` , {
                 method: "POST",
@@ -27,9 +34,10 @@ const Register = () => {
                 })
             })
             const resData = res.json()
-            console.log(resData)
+            addToast(`Welcome ${name} Please login now` , {appearance:'success'})
             router.push(`/`)
         } catch (error) {
+            addToast(`Connection problem` , {appearance: 'error'})
             console.log(error)
         }
     }
@@ -49,7 +57,7 @@ const Register = () => {
                             type="text" 
                             onChange={(e)=> setname(e.target.value)} 
                             name='name' 
-                            placeholder='name'/>
+                            placeholder='Name must be min 4 character'/>
                         </div>
                         <div>
                             <h4>
@@ -61,7 +69,7 @@ const Register = () => {
                             type="text" 
                             onChange={(e)=> setemail(e.target.value)} 
                             name='email' 
-                            placeholder='email'/>
+                            placeholder='Email must be min 10 character'/>
                         </div>
                         <div>
                             <h4>
@@ -73,7 +81,7 @@ const Register = () => {
                             type="password" 
                             onChange={(e)=> setpassword(e.target.value)} 
                             name='password' 
-                            placeholder='password'/>
+                            placeholder='Password must be min 4 character'/>
                         </div>
                         <div>
                             <button 
