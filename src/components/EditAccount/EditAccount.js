@@ -1,19 +1,24 @@
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import React, { useState } from 'react';
+import {useRouter} from 'next/router'
+import cookie from 'js-cookie'
 import {useToasts} from 'react-toast-notifications'
 import styles from './EditAccount.module.scss'
 
 
 const EditAccount = ({user}) => {
 
+    const router = useRouter()
+
     const {addToast} = useToasts()
 
     const [open, setOpen] = useState(false);
     const closeModal = () => setOpen(false);
 
-    const [name, setname] = useState('')
-    const [email, setemail] = useState('')
+    const [name, setname] = useState(user.name)
+    const [email, setemail] = useState(user.email)
+    const [role, setrole] = useState(user.role)
     const [password, setpassword] = useState('')
 
 
@@ -23,21 +28,27 @@ const EditAccount = ({user}) => {
             return addToast(`Some inputs fill wrongly` , {appearance:'warning'})
         }
 
+        cookie.remove('token')
+        cookie.remove('user')
 
         try {
             const res = await fetch(`${process.env.BASE_URL}/api/register` , {
-                method: "POST",
+                method: "PUT",
                 headers: {
                     "Content-Type":"application/json"
                 },
                 body: JSON.stringify({
                     name,
                     email,
+                    role,
                     password
                 })
             })
-            const resData = res.json()
-            addToast(`Welcome ${name} Please login now` , {appearance:'success'})
+            const resData = await res.json()
+            cookie.set('token',resData.token)
+            cookie.set('user',resData.user)
+            console.log(resData)
+            addToast(`Your information changed successfully` , {appearance:'success'})
             router.push(`/`)
         } catch (error) {
             addToast(`Connection problem` , {appearance: 'error'})
@@ -49,9 +60,9 @@ const EditAccount = ({user}) => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-lg-8">
-                    <h4>Change your information</h4>
+                <div className={`col-lg-12 ${styles.header}`}>
                     <button type="button" className="button" onClick={() => setOpen(o => !o)}>
+                        <i className="fas fa-tools"></i>
                         Edit
                     </button>
                     <Popup  open={open} closeOnDocumentClick onClose={closeModal}>

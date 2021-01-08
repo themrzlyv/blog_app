@@ -33,7 +33,8 @@ const Login = () => {
             cookie.set('user',resData.user)
             router.push(`/`)
         } catch (error) {
-            
+            addToast('wrong entry',{appearance:'error'})
+            router.push('/login')
         }
     }
 

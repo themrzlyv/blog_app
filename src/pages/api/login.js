@@ -26,6 +26,6 @@ export default async (req,res) => {
             return res.status(401).json({error: 'Email or Password is wrong'})
         }
     } catch (error) {
-        console.log(error)
+        return res.status(401).json({error: 'Email or Password is wrong'})
     }
 }

@@ -21,6 +21,9 @@ const Navi = () => {
         }
     }
 
+    
+
+
     return (
         <div className={styles.container}>
             <div className='container'>
@@ -52,14 +55,6 @@ const Navi = () => {
                                                                 <a className="dropdown-item">
                                                                 {user.name}
                                                                 <i className="fas fa-user-cog mx-2"></i>
-                                                                </a>
-                                                            </Link>
-                                                        </li>
-                                                        <li>
-                                                            <Link href={`/create`}>
-                                                                <a className="dropdown-item">
-                                                                New Post
-                                                                <i className="far fa-edit mx-2"></i>
                                                                 </a>
                                                             </Link>
                                                         </li>

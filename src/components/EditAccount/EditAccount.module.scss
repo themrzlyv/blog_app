@@ -1,3 +1,33 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+
+    
+
+    button {
+        font-size: 1.1em;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 2px 7px;
+        border: none;
+        border-radius: 6px;
+        background-color: transparent;
+        transition: box-shadow, .3s all;
+
+        i {
+            margin: 0 5px;
+        }
+
+        &:hover {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+            transition: box-shadow, .3s all;
+        }
+    }
+}
+
+
 .maincontainer {
 
     display: flex;

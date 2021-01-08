@@ -34,8 +34,8 @@ const Register = () => {
                 })
             })
             const resData = res.json()
-            addToast(`Welcome ${name} Please login now` , {appearance:'success'})
-            router.push(`/`)
+            addToast(`This ${email} is registrated successfully ` , {appearance:'success'})
+            router.push(`/account`)
         } catch (error) {
             addToast(`Connection problem` , {appearance: 'error'})
             console.log(error)

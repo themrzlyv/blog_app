@@ -14,18 +14,26 @@ const Account = () => {
         <div className={`container my-4 ${styles.container}`}>
             <div className="row my-4">
                 <div className={`col-lg-6 ${styles.header}`}>
-                    <h4>{user.name}</h4>
-                    <h4>{user.email}</h4>
-                </div>
-                <div className="col-lg-6">
-                    <EditAccount />
+                    <div className='col-lg-6'>
+                        <h4>
+                        <i className="fas fa-user-shield"></i>
+                        {user.name}
+                        </h4>
+                    </div>
+                    <div className='col-lg-4'>
+                        <EditAccount user ={user}/>
+                    </div>
+                    <h4>
+                    <i className="far fa-envelope"></i>
+                    {user.email}
+                    </h4>
                 </div>
             </div>
             <div className="row">
-                <div className="col-lg-8">
+                <div className="col-lg-7">
                     <Create/>
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-5">
                     <Register />
                 </div>
             </div>

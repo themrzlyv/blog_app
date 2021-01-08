@@ -61,6 +61,7 @@ const Create = () => {
                 <div className="col-lg-12 mx-auto my-2 d-flex p-0 justify-content-center">
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <div>
+                            <h4>Title</h4>
                             <input
                             type="text"
                             placeholder='Title must be max 35 character'
@@ -68,6 +69,7 @@ const Create = () => {
                             />
                         </div>
                         <div>
+                            <h4>Description</h4>
                             <textarea
                             rows="8" 
                             cols="60"
@@ -97,18 +99,7 @@ const Create = () => {
 }
 
 
-export const getServerSideProps = async ctx => {
-    const {token} = parseCookies(ctx)
-    if(!token){
-        const {res} = ctx
-        res.writeHead(302,{Location: '/'})
-        res.end()
-    }
 
-    return {
-        props: {}
-    }
-}
 
 
 export default Create;
